@@ -9,7 +9,7 @@ def create_app():
     @app.route('/')
     def index():
         page_title = "Новости Python"
-        weather = app.config["WEATHER_DEFAULT_CITY"]
+        weather = weather_by_city(app.config["WEATHER_DEFAULT_CITY"])
         news_list = get_python_news()
         return render_template('index.html', page_title=page_title, weather=weather, news_list=news_list)       
 
